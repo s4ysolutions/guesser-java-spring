@@ -8,7 +8,7 @@ import s4y.guess.guesser.domain.ports.GuessGateway;
 import s4y.guess.guesser.domain.vo.Bit;
 import s4y.guess.guesser.domain.vo.GameId;
 import s4y.guess.guesser.domain.workflows.GameWorkflows;
-import s4y.guess.guesser.domain.workflows.PressOutcome;
+import s4y.guess.guesser.domain.workflows.GameWorkflows.PressOutcome;
 
 /** Presses a bit in a game. The server guesses the bit first, then the round is stored. */
 public final class PressBitUseCase {

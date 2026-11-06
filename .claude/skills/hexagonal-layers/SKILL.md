@@ -46,7 +46,7 @@ Read the skill for the layer you touch:
 ```
 features/guesser/
   domain/            vo, entities, errors, operations, ports, workflows  (no Spring)
-                     workflows also holds the result records GameSnapshot, PressOutcome
+                     a workflow's result records are nested in it: GameWorkflows.GameSnapshot, GameWorkflows.PressOutcome
   app/               usecases                                            (no Spring)
   infra/memory       test adapters (fake repository, scripted gateway)
   infra/longest-match, infra/jev, infra/h2    production adapters
@@ -81,7 +81,7 @@ Module dependencies (compile scope). Group id `s4y.guess`.
 | Value object, entity, domain error | `domain/vo`, `domain/entities`, `domain/errors` |
 | Pure rule | `domain/operations` (`*Operations`) |
 | Rule that uses a port | `domain/workflows` (`*Workflows`) |
-| Result record of a workflow (`GameSnapshot`, `PressOutcome`) | `domain/workflows`, next to the workflow |
+| Result record of a workflow (`GameSnapshot`, `PressOutcome`) | nested record in that workflow class (`GameWorkflows.PressOutcome`) |
 | Port interface | `domain/ports` |
 | Use case and its `Command` | `app/usecases` |
 | JPA entity, Spring Data interface | `infra/h2` only |

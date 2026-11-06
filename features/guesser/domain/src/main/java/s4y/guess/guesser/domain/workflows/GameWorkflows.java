@@ -15,6 +15,7 @@ import s4y.guess.guesser.domain.vo.Bit;
 import s4y.guess.guesser.domain.vo.GameId;
 import s4y.guess.guesser.domain.vo.GuessOutcome;
 import s4y.guess.guesser.domain.vo.Round;
+import s4y.guess.guesser.domain.vo.Score;
 import s4y.guess.guesser.domain.vo.WindowSize;
 
 /**
@@ -24,6 +25,13 @@ import s4y.guess.guesser.domain.vo.WindowSize;
 public final class GameWorkflows {
 
   private GameWorkflows() {}
+
+  /** The result of loading or changing a game: the game together with its score. */
+  public record GameSnapshot(Game game, Score score) {}
+
+  /** The result of one press: the new game, the new round, the guess failure if any, the score. */
+  public record PressOutcome(
+      Game game, Round round, Optional<GuessOutcome.Failed> guessFailure, Score score) {}
 
   /** Creates a new empty game. */
   public static GameSnapshot start(GameRepository games, TransactionRunner tx, WindowSize size)

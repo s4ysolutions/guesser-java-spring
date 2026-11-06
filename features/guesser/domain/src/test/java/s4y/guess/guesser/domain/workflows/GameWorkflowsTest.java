@@ -1,5 +1,9 @@
 package s4y.guess.guesser.domain.workflows;
 
+import s4y.guess.guesser.domain.workflows.GameWorkflows.PressOutcome;
+
+import s4y.guess.guesser.domain.workflows.GameWorkflows.GameSnapshot;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static s4y.guess.guesser.domain.TestGames.game;

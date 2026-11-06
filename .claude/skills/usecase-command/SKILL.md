@@ -18,7 +18,7 @@ It has no Spring annotation. The product creates it with `new` (see [composition
 3. One public method: `execute(Command)`. It lists the real checked exceptions in `throws`.
 4. The constructor takes ports (and `TransactionRunner` if the workflow needs it). Store them in `private final` fields.
 5. `execute` calls **one** workflow and passes the ports down. No other logic, except turning raw command values into domain values (`WindowSize.clamped(int)`). The workflow builds the result record (`GameSnapshot`, `PressOutcome`); the use case returns it as it is.
-6. It returns a domain type (`GameSnapshot`, `PressOutcome`, both in `domain/workflows`). Never a DTO, never an HTTP type.
+6. It returns a domain type (`GameWorkflows.GameSnapshot`, `GameWorkflows.PressOutcome`: records nested in the workflow). Never a DTO, never an HTTP type.
 7. **No transaction.** The workflow owns it (see [transaction-port](../transaction-port/SKILL.md)).
 8. **No use-case groups.** Do not write `GameUseCases` with five methods. A group hides which ports each use case needs.
 9. The app module depends on `guesser-domain` only. No Spring, no infra, no presentation.

@@ -6,7 +6,7 @@ import s4y.guess.guesser.domain.errors.GuesserError;
 import s4y.guess.guesser.domain.ports.GameRepository;
 import s4y.guess.guesser.domain.vo.GameId;
 import s4y.guess.guesser.domain.vo.WindowSize;
-import s4y.guess.guesser.domain.workflows.GameSnapshot;
+import s4y.guess.guesser.domain.workflows.GameWorkflows.GameSnapshot;
 import s4y.guess.guesser.domain.workflows.GameWorkflows;
 
 /** Changes the window size of a game. The number is moved into the range 1 to 256. */

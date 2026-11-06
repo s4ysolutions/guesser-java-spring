@@ -5,7 +5,7 @@ import s4y.guess.core.domain.errors.InfraFailure;
 import s4y.guess.core.domain.ports.TransactionRunner;
 import s4y.guess.guesser.domain.ports.GameRepository;
 import s4y.guess.guesser.domain.vo.WindowSize;
-import s4y.guess.guesser.domain.workflows.GameSnapshot;
+import s4y.guess.guesser.domain.workflows.GameWorkflows.GameSnapshot;
 import s4y.guess.guesser.domain.workflows.GameWorkflows;
 
 /**

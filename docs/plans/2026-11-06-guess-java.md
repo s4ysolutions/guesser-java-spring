@@ -143,7 +143,7 @@ Port of the TS rules. Keep names exactly.
 - `GuessGateway`: `Guess guess(Bits lastBits) throws GuessFailed`.
 
 ### workflows/ (static, ports as arguments — D6, D8)
-- `GameSnapshot` — `record GameSnapshot(Game game, Score score)`; `PressOutcome` — `record PressOutcome(Game game, Round round, Optional<GuessOutcome.Failed> guessFailure, Score score)`. Both are workflow results, so they live in `workflows`, not `vo`.
+- `GameSnapshot` — `record GameSnapshot(Game game, Score score)`; `PressOutcome` — `record PressOutcome(Game game, Round round, Optional<GuessOutcome.Failed> guessFailure, Score score)`. Both are workflow results, so they are nested records of `GameWorkflows` (`GameWorkflows.GameSnapshot`, `GameWorkflows.PressOutcome`), not in `vo`.
 - `GuessWorkflows.guessNext(GuessGateway gateway, Game game)` → `GuessOutcome`.
   No history → `Skipped` without calling the gateway. `GuessFailed` → `Failed`.
 - `GameWorkflows`:

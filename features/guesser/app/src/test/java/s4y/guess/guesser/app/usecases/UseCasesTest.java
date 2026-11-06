@@ -16,8 +16,8 @@ import s4y.guess.guesser.domain.vo.Guess;
 import s4y.guess.guesser.domain.vo.GuessOutcome;
 import s4y.guess.guesser.domain.vo.Round;
 import s4y.guess.guesser.domain.vo.Score;
-import s4y.guess.guesser.domain.workflows.GameSnapshot;
-import s4y.guess.guesser.domain.workflows.PressOutcome;
+import s4y.guess.guesser.domain.workflows.GameWorkflows.GameSnapshot;
+import s4y.guess.guesser.domain.workflows.GameWorkflows.PressOutcome;
 import s4y.guess.guesser.infra.memory.GameRepositoryInMemory;
 import s4y.guess.guesser.infra.memory.GuessGatewayScripted;
 

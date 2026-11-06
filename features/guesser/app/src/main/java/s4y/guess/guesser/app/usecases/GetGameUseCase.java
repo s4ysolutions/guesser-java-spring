@@ -4,7 +4,7 @@ import s4y.guess.core.domain.errors.InfraFailure;
 import s4y.guess.guesser.domain.errors.GameNotFound;
 import s4y.guess.guesser.domain.ports.GameRepository;
 import s4y.guess.guesser.domain.vo.GameId;
-import s4y.guess.guesser.domain.workflows.GameSnapshot;
+import s4y.guess.guesser.domain.workflows.GameWorkflows.GameSnapshot;
 import s4y.guess.guesser.domain.workflows.GameWorkflows;
 
 /** Reads a game and its score. */

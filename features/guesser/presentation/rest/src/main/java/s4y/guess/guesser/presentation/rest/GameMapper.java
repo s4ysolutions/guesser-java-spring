@@ -6,8 +6,8 @@ import s4y.guess.guesser.contract.RoundResponse;
 import s4y.guess.guesser.contract.ScoreResponse;
 import s4y.guess.guesser.domain.vo.Round;
 import s4y.guess.guesser.domain.vo.Score;
-import s4y.guess.guesser.domain.workflows.GameSnapshot;
-import s4y.guess.guesser.domain.workflows.PressOutcome;
+import s4y.guess.guesser.domain.workflows.GameWorkflows.GameSnapshot;
+import s4y.guess.guesser.domain.workflows.GameWorkflows.PressOutcome;
 
 /** Turns domain results into contract records. All methods are static and pure. */
 final class GameMapper {

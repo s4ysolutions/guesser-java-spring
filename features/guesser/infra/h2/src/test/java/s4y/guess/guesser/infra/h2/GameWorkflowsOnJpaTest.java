@@ -19,9 +19,9 @@ import s4y.guess.guesser.domain.vo.Guess;
 import s4y.guess.guesser.domain.vo.Round;
 import s4y.guess.guesser.domain.vo.Score;
 import s4y.guess.guesser.domain.vo.WindowSize;
-import s4y.guess.guesser.domain.workflows.GameSnapshot;
+import s4y.guess.guesser.domain.workflows.GameWorkflows.GameSnapshot;
 import s4y.guess.guesser.domain.workflows.GameWorkflows;
-import s4y.guess.guesser.domain.workflows.PressOutcome;
+import s4y.guess.guesser.domain.workflows.GameWorkflows.PressOutcome;
 
 /** The real workflow on the real adapters: JPA repository and Spring transactions. */
 @DataJpaTest(showSql = false)

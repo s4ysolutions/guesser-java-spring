@@ -25,7 +25,7 @@ The name tells the kind: `*Operations` and `*Workflows`. `grep` finds each kind.
 7. A workflow may call another workflow, and passes the needed ports down.
 8. A workflow throws checked domain errors (see [domain-value-objects](../domain-value-objects/SKILL.md)) plus `InfraFailure`. It never declares `throws Exception`.
 9. The workflow owns the transaction. See [transaction-port](../transaction-port/SKILL.md).
-10. A workflow returns a domain record. When no existing type fits, the result record lives **in `domain/workflows`** next to the workflow: `GameSnapshot(Game, Score)` and `PressOutcome(...)`. Not in `vo`: a record that holds a `Game` in `vo` makes a package cycle with `entities`.
+10. A workflow returns a domain record. When no existing type fits, the result record is a **nested record of the workflow class** that returns it: `GameWorkflows.GameSnapshot(Game, Score)` and `GameWorkflows.PressOutcome(...)`. The type name shows the owner, and nothing that looks like a value object sits in `workflows`. Callers import the nested type: `import ...domain.workflows.GameWorkflows.PressOutcome;`. Not in `vo`: such a record has no rules of its own, and holding a `Game` in `vo` makes a package cycle with `entities`. Same idea as a port's result type, which is nested in the port.
 11. Small `private static` helpers in the workflow class (`snapshot(game)`, `failureOf(outcome)` in `GameWorkflows`) keep the transaction lambda short. A helper that is pure and has a rule in it belongs in an operation instead.
 
 ### Why static
@@ -81,7 +81,7 @@ public final class GuessWorkflows {
 - A workflow that takes an infra type (`GameRowRepository`, `JdbcTemplate`) as argument. Only domain ports.
 - `@Service` or `@Component` on a workflow.
 - Testing an operation with a fake. If you need one, the class is a workflow.
-- Putting `GameSnapshot` or `PressOutcome` in `vo` "because they are records". They are workflow results.
+- Putting `GameSnapshot` or `PressOutcome` in `vo` "because they are records", or as top-level files in `workflows`. They are results of one workflow: nest them in it.
 - Testing a workflow with Mockito. Domain tests use hand-written fakes in `src/test` (`GameRepositoryFake`, `GuessGatewayFake`) and `TransactionRunnerInMemory`. Mockito is not even on the classpath (see [maven-module-layout](../maven-module-layout/SKILL.md)).
 
 ## Differs from
